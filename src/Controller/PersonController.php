@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Entity\Person;
+use App\Form\PersonType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\{SubmitType, TextType, DateType, IntegerType, CheckboxType};
@@ -23,15 +24,8 @@ class PersonController extends Controller {
     public function newp(Request $request) {
 
         $person = new Person();
-        $form = $this->createFormBuilder($person)
-            ->add("name",TextType::class)
-            ->add("age",IntegerType::class)
-            ->add("visible",CheckboxType::class, ["required" => false])
-            ->add("created_at",DateType::class)
-            ->add("color",TextType::class)
-            ->add("save",SubmitType::class, array('label' =>'Creer'))
-            ->getForm();
-
+        $person->setMaxWeight(0);
+        $form = $this->createForm(PersonType::class,$person);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
 
@@ -40,7 +34,7 @@ class PersonController extends Controller {
             $em-> flush();
         }
 
-        return $this->render("Person/new.html.twig", array('form' => $form->createView(),));
+        return $this->render("Person/newPerson.html.twig", array('form' => $form->createView(),));
     }
 
     public function newGetPostAction(Request $request){
@@ -50,7 +44,7 @@ class PersonController extends Controller {
 
     }
     public function index() {
-        return $this->render("Person/index.html.twig");
+        return $this->render("Person/Personindex.html.twig");
     }
 
 }

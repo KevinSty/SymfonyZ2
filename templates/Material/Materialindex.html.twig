@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+{% block title %}index Material{% endblock %}
+{% block body %}
+    <table>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>weight</th>
+        </tr>
+        {% block if %}
+        <tr>
+            <th>Material.id</th>
+            <th>Material.name</th>
+            <th>Material.weight</th>
+
+        </tr>
+        {% endblock %}
+
+    </table>
+
+{% endblock %}

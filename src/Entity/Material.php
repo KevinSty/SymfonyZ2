@@ -1,22 +1,22 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: kevin.diaz
- * Date: 13/11/17
- * Time: 14:10
+ * Date: 20/11/17
+ * Time: 13:18
  */
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Person
- * @package App\Entity
+ * Class Material
+ * @package App\Material
  * @ORM\Entity
- * @ORM\Table(name="persons")
+ * @ORM\Table(name="materials")
  */
-class Person {
+class Material {
     /**
      * @var int
      * @ORM\Id
@@ -31,20 +31,16 @@ class Person {
      */
     protected $name;
     /**
-     * @var int
+     * @var float
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
      */
-    protected $max_weight;
+    protected $weight;
 
     /**
-     * @var Inventory[]
-     * @ORM\OneToMany(targetEntity="Inventory", mappedBy="person")
+     * @return int
      */
-    protected $person;
-
-
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -60,7 +56,7 @@ class Person {
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -74,24 +70,25 @@ class Person {
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function getMaxWeight(): int
+    public function getWeight(): float
     {
-        return $this->max_weight;
+        return $this->weight;
     }
 
     /**
-     * @param int $max_weight
+     * @param float $weight
      */
-    public function setMaxWeight(int $max_weight)
+    public function setWeight(float $weight)
     {
-        $this->max_weight = $max_weight;
+        $this->weight = $weight;
     }
 
     function __toString()
     {
         return $this->name;
     }
+
 
 }

@@ -12,6 +12,14 @@ index:
     defaults: { _controller: 'App\Controller\PersonController::index' }
 
 new:
-    path: /new
+    path: /Person/new
     defaults: { _controller: 'App\Controller\PersonController::newp' }
+
+new2:
+    path: /Material/new
+    defaults: { _controller: 'App\Controller\MaterialController::newm' }
+
+new3:
+    path: /Inventory/new
+    defaults: { _controller: 'App\Controller\InventoryController::newi' }
 
