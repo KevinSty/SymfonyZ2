@@ -11,15 +11,30 @@ index:
     path: /
     defaults: { _controller: 'App\Controller\PersonController::index' }
 
-new:
+new_person:
     path: /Person/new
     defaults: { _controller: 'App\Controller\PersonController::newp' }
 
-new2:
+new_material:
     path: /Material/new
     defaults: { _controller: 'App\Controller\MaterialController::newm' }
 
-new3:
+new_inventory:
     path: /Inventory/new
     defaults: { _controller: 'App\Controller\InventoryController::newi' }
 
+index_player:
+    path: /Player
+    defaults: { _controller: 'App\Controller\PlayerController::indexAction' }
+
+index_fight:
+    path: /Fight
+    defaults: { _controller: 'App\Controller\FightController::indexAction' }
+
+new_player:
+    path: /Player/new
+    defaults: { _controller: 'App\Controller\PlayerController::newpl' }
+
+new_fight:
+    path: /Fight/new
+    defaults: { _controller: 'App\Controller\FightController::indexAction' }
