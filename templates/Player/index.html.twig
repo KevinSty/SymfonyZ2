@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Index {% endblock %}
+
+{% block body %}
+    <h1>Welcome</h1>
+    <a href="{{ path("newPlayer") }}">Player</a>
+    <a href="{{ path("newItem") }}">Item</a>
+    <a href="{{ path("newPlayerItem") }}">Player Item</a>
+{% endblock %}
