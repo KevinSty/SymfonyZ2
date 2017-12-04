@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,12 +19,14 @@ class PlayerItem {
     private $id;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="Player", inversedBy="playeritems")
      * @@ORM\JoinColumn(name="player_id", referencedColumnName="id")
      */
     private $player;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="Item")
      * @@ORM\JoinColumn(name="item_id", referencedColumnName="id")
      */
@@ -75,7 +79,7 @@ class PlayerItem {
         $this->item = $item;
     }
 
-    public function __construct(\Doctrine\ORM\EntityManagerInterface $em) {
-        $this->em = $em;
+    public function __construct() {
+        $this = new \DateTime();
     }
 }

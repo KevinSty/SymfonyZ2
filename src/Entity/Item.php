@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="material")
+ * @ORM\Table(name="item")
  */
 class Item {
     /**
@@ -17,11 +19,25 @@ class Item {
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 20,
+     *      minMessage = "A weapon name must be at least {{ limit }} characters long",
+     *      maxMessage = "A weapon name cannot be more than {{ limit }} characters"
+     * )
      * @ORM\Column(type="string", length=100)
      */
     private $name;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 20,
+     *      minMessage = "A weapon type must be at least {{ limit }} characters long",
+     *      maxMessage = "A weapon type cannot be more than {{ limit }} characters"
+     * )
      * @ORM\Column(type="string", length=30, nullable = false)
      */
     private $typeItem;

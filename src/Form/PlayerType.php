@@ -13,13 +13,28 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class PlayerType extends AbstractType {
 
-    public function configureOptions(OptionsResolver $resolver){
+
+    public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults(array('data_class' => Player::class));
     }
 
-    public function buildForm(FormBuilderInterface $builder, array $options){
+    public function buildForm(FormBuilderInterface $builder, array $options) {
+
         $builder
-            ->add("name", TextType::class)
-            ->add("save", SubmitType::class, array("label"=>"Creer"));
+            ->add('name')
+            ->addEventListener( FormEvents::PRE_SET_DATA,
+                array($this, 'onPreSetData') );
+    }
+
+    public function onPreSetData(FormEvent $event) {
+
+        $player = $event->getData();
+        $form = $event->getForm();
+
+        if ($player->getId() !== null) {
+            $form->remove('name');
+        }
+
+        $form->add('submit');
     }
 }

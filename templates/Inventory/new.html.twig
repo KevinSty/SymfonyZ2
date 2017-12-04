@@ -1,10 +1,8 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Ajout Item{% endblock %}
+{% block title %}Ajout Inventory{% endblock %}
 
 {% block body %}
-    <a href="{{ path('index') }}">Retour</a>
-
     {{ form_start(form) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}

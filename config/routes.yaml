@@ -1,20 +1,3 @@
-index:
-    path: /
-    defaults: { _controller: 'App\Controller\PlayerController::index' }
-
-newPlayer:
-    path: /Player/new
-    defaults: { _controller: 'App\Controller\PlayerController::newPlayer' }
-
-newItem:
-    path: /Item/new
-    defaults: { _controller: 'App\Controller\ItemController::newItem' }
-
-newPlayerItem:
-    path: /PlayerItem/new
-    defaults: { _controller: 'App\Controller\PlayerItemController::newPlayerItem' }
-
-# first, run composer req annotations
-#controllers:
-#    resource: ../src/Controller/
-#    type: annotation
+controllers:
+    resource: ../src/Controller/
+    type: annotation

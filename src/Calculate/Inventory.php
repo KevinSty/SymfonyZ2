@@ -11,13 +11,14 @@ class Inventory {
     private $inventory;
 
     /**
-     * PlayerItem constructor.
+     * Inventory constructor.
      */
-    public function __construct(EntityManagerInterface $em) {
+    public function __construct(EntityManagerInterface $em)
+    {
         $this->em = $em;
     }
 
-    public function calcul() {
+    public function calcul(){
         $maxWeight = $this->person->getMaxWeight();
 
         $totalWeight = 0.0;
